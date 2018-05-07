@@ -7,6 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Controller responsible to create the URL needed for the user authenticatiton.
+ * 
+ * @author Nelson.Matias
+ *
+ */
 @Component
 public class AuthController {
 
@@ -17,9 +23,8 @@ public class AuthController {
 	public AuthController(AppConfig config) {
 
 		controller = AuthenticationController
-				.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
-				.build();
-		
+				.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret()).build();
+
 		userInfoAudience = String.format("https://%s/userinfo", config.getDomain());
 	}
 
@@ -27,14 +32,22 @@ public class AuthController {
 		return controller.handle(request);
 	}
 
+	/**
+	 * Create the URL responsible for user authentication. It uses
+	 * http://localhost:8080/greeting as audience, which allow the user to invoke
+	 * the APIs
+	 * 
+	 * @param request
+	 * @param redirectUri
+	 * @return
+	 */
 	public String buildAuthorizeUrl(HttpServletRequest request, String redirectUri) {
-		
-		
+
 		String s = controller.buildAuthorizeUrl(request, redirectUri).withAudience("http://localhost:8080/greeting")
-				.build(); 
-		
+				.build();
+
 		System.out.println("String buildAuthorizeUrl is " + s);
-		
+
 		return s;
 	}
 

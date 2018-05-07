@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Controller responsible for authentication of the user
+ * @author Nelson.Matias
+ *
+ */
 @SuppressWarnings("unused")
 @Controller
 public class LoginController {

@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 import com.nelsonmatias.demo.pojo.Greeting;
 
 @Controller
-@SessionAttributes("userJobTitle")
+@SessionAttributes({"userJobTitle", "userAccess"})
 /**
  * Auth0 Controller that shows the options for request the protected APIs
  * 

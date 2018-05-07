@@ -8,6 +8,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 
+/**
+ * Sampple error class that send user back to login when some no handled error occurs 
+ * @author Nelson.Matias
+ *
+ */
 @SuppressWarnings("unused")
 @Controller
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController {

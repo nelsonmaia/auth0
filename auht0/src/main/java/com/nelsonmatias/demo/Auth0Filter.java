@@ -7,6 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+/**
+ *  Filter responsible for intercepting requests and check if they are authenticated. If not, uses Auth0 to authenticate.
+ * @author Nelson.Matias
+ *
+ */
 public class Auth0Filter implements Filter {
 
     @Override

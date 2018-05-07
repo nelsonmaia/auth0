@@ -5,13 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="${greeting}" />
+    <h1 th:text="${greeting}" ></h1>
     <p th:text="${userJobTitle}" />
+	<h2>Access:</h2>
+    <div th:each="row : ${userAccess}">
+   		 <p th:if="${row != 'openid'}" th:text="${#strings.substringBefore(row,':')}" /> 
+    </div>
+    <h2 th:if="${#arrays.contains(userAccess,'write:greetings')}">Options:</h2>
     <ul>
-	    <li>
+	    <li th:if="${#arrays.contains(userAccess,'write:greetings')}">
 	    	<a href="/changeGreeting.html">Change the default greeting</a>
 	    </li>
-	    <li>
+	    <li th:if="${#arrays.contains(userAccess,'delete:greetings')}">
 	    	<a href="/deleteGreeting">Delete greeting</a>
 	    </li>
     </ul>

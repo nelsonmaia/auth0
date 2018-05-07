@@ -30,6 +30,10 @@ public class AppConfig {
     @Value(value = "${com.auth0.clientSecret}")
     private String clientSecret;
 
+    /**
+     * Register the URL that are intercept by the filter
+     * @return
+     */
     @Bean
     public FilterRegistrationBean filterRegistration() {
         final FilterRegistrationBean registration = new FilterRegistrationBean();

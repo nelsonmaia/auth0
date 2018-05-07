@@ -2,6 +2,11 @@ package com.nelsonmatias.demo.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * User as bean for this Application
+ * @author Nelson.Matias
+ *
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Greeting {
 
